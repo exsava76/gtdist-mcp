@@ -33,6 +33,8 @@ Every tool is a thin wrapper over the GTDist REST API, called with *your* token:
 
 ## Connect
 
+Connecting an assistant is part of the GTDist **ProAI** plan (and of the free trial). Without it the server answers `402 oord_ai_required`, both for OAuth and for personal keys; the assistant itself is paid by you separately.
+
 Two ways to sign in:
 
 1. **OAuth (recommended where supported).** Add the hosted URL `https://task.gtdist.app/mcp`; the client opens GTDist in the browser, you choose what it may do and confirm.
@@ -215,7 +217,7 @@ License: [MIT](LICENSE).
 
 **GTDist MCP** — сервер [Model Context Protocol](https://modelcontextprotocol.io) для планировщика [GTDist](https://gtdist.app) по методу Дэвида Аллена «Как привести дела в порядок» (GTD). Через него ИИ-ассистент записывает мысли во «Входящие», помогает их разобрать, подсказывает, что сделать сейчас, следит за проектами и ведёт еженедельный обзор.
 
-**Подключение.**
+**Подключение** входит в тариф GTDist **ProAI** (и в пробный период). Без него сервер отвечает `402 oord_ai_required` — и для входа через OAuth, и для личных ключей; сам ассистент вы оплачиваете отдельно.
 
 1. **Через вход (OAuth)** — адрес `https://task.gtdist.app/mcp`. Ассистент откроет GTDist в браузере, вы выберете, что ему можно, и подтвердите. Так подключаются Claude.ai и Claude Desktop («Настройки → Коннекторы → Добавить свой коннектор»), Claude Code (`claude mcp add --transport http gtdist https://task.gtdist.app/mcp`), ChatGPT (режим разработчика → новый коннектор), VS Code, Cursor, Gemini CLI.
 2. **Личным ключом** — в GTDist «Настройки → Личные ключи», создайте ключ (`sm_pat_…`, показывается один раз). Его можно передать с тем же адресом заголовком `Authorization: Bearer sm_pat_…` (Codex, Cursor, Gemini CLI) или запустить локальный сервер: `npx -y github:exsava76/gtdist-mcp` с переменной `GTDIST_TOKEN`. Готовые настройки для каждого клиента — в разделе [Connect](#connect) выше.
